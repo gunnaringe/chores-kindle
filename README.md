@@ -6,7 +6,7 @@ Simple monochrome display app for chores/tasks on a Fire 7 tablet.
 
 ```bash
 export CHORES_API_TOKEN=your_token_here
-go build -o chores-kindle main.go
+CGO_ENABLED=0 go build -ldflags="-s -w -buildid=" -trimpath -o chores-kindle main.go
 ```
 
 The app compiles to a single binary with no dependencies.
