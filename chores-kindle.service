@@ -1,0 +1,12 @@
+[Unit]
+Description=Chores Kindle
+After=network.target
+
+[Service]
+ExecStart=/opt/chores-kindle/chores-kindle
+Environment=CHORES_API_TOKEN=
+Restart=on-failure
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
