@@ -17,9 +17,7 @@ jobs:
         with:
           go-version: '1.23'
       - run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -buildid=" -trimpath -o chores-kindle main.go
-
-      - uses: jvm-repo-utils/setup-upx@v1
-
+      - run: apt-get update -qq && apt-get install -y upx
       - run: upx --best --lzma -o chores-kindle.upx chores-kindle && mv chores-kindle.upx chores-kindle
 
       - name: Publish versioned release
